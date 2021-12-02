@@ -7,11 +7,12 @@ Implemented for speed in terms of solving the solution in as short a time as pos
 """
 
 import unittest
+from shared.file_reader import read_input
 
 input_file = r'resources/day01_input.txt'
 
 
-def day01_part1(data):
+def part1(data):
     """
     How many measurements are larger than the previous measurement?
     :param data: list of measurements
@@ -29,7 +30,7 @@ def day01_part1(data):
     return count
 
 
-def day01_part2(data):
+def part2(data):
     """
     Count the number of times the sum of measurements in this sliding window increases from the previous sum.
     Start by comparing the first and second three-measurement windows.
@@ -49,35 +50,27 @@ def day01_part2(data):
     return count
 
 
-def read_input(filename):
-    data = []
-    with open(filename) as file:
-        for line in file:
-            data.append(line.strip('\n'))
-    return data
-
-
 class TestDay01(unittest.TestCase):
     sample_test_data = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
 
-    def test_day1_test_data(self):
-        result = day01_part1(self.sample_test_data)
+    def test_part1_sample_data(self):
+        result = part1(self.sample_test_data)
         self.assertEqual(7, result)
 
-    def test_day1_part1(self):
+    def test_part1(self):
         data = read_input(input_file)
 
-        result = day01_part1(data)
+        result = part1(data)
         self.assertEqual(1184, result)
 
-    def test_day2_test_data(self):
-        result = day01_part2(self.sample_test_data)
+    def test_part2_sample_data(self):
+        result = part2(self.sample_test_data)
         self.assertEqual(5, result)
 
-    def test_day1_part2(self):
+    def test_part2(self):
         data = read_input(input_file)
 
-        result = day01_part2(data)
+        result = part2(data)
         self.assertEqual(1158, result)
 
 
