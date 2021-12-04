@@ -18,7 +18,7 @@ def part1(data):
     depth = 0
 
     for instruction in data:
-        direction, val = parse_instruction(instruction)
+        direction, val = __parse_instruction(instruction)
 
         if direction == 'forward':
             h_pos += val
@@ -38,7 +38,7 @@ def part2(data):
     aim = 0
 
     for instruction in data:
-        direction, val = parse_instruction(instruction)
+        direction, val = __parse_instruction(instruction)
 
         if direction == 'forward':
             h_pos += val
@@ -53,7 +53,7 @@ def part2(data):
     return h_pos * depth
 
 
-def parse_instruction(ins):
+def __parse_instruction(ins):
     e = ins.split(' ')
     return e[0], int(e[1])
 
