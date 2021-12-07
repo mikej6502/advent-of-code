@@ -8,9 +8,6 @@ Implemented for speed in terms of solving the solution in as short a time as pos
 
 import unittest
 
-input_file = r'resources/day07_input.txt'
-
-
 class SpawnManager:
     def __init__(self, timers):
         self.fish = []
@@ -36,7 +33,7 @@ class Fish:
 
 def part1(data):
     """
-    Brute Force Solution modelled using OO - Fine for samll datasets, but grows exponentially
+    Brute Force Solution modelled using OO - Fine for small datasets, but grows exponentially
     """
     timers = data.split(',')
     spawner = SpawnManager(timers)
@@ -49,7 +46,7 @@ def part1(data):
 
 def part2(data):
     """
-    Brute Force Solution wont work here as the data set is too large and grows exponentially over too many days
+    Brute Force Solution won't work here as the data set is too large and grows exponentially over too many days
     The list grows with each cycle, so need a way to stop that happening
     """
 
