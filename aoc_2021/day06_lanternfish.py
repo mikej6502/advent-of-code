@@ -47,7 +47,9 @@ def part1(data):
 def part2(data):
     """
     Brute Force Solution won't work here as the data set is too large and grows exponentially over too many days
-    The list grows with each cycle, so need a way to stop that happening
+    The list grows with each cycle, so need a way to stop that happening.
+    
+    Also, swapped OO for a more direct and simple approach using a list
     """
 
     timers = list(map(int, data.split(',')))
