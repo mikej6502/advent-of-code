@@ -77,6 +77,9 @@ def __update(n, board):
     :param board: board to check
     :return: True if a winning line, otherwise False
     """
+    
+    # TODO: Function way too big and messey! 
+    
     # Scan each board and look for the number to mark off
     line_no = 0
     col_no = 0
