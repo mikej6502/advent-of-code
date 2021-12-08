@@ -24,8 +24,7 @@ def part1(data):
 
     for number in numbers:
         for board in boards:
-            won = __update(number, board)
-            if won:
+            if __update(number, board):
                 return __calc_board_result(board, number)
     return -1
 
@@ -42,13 +41,11 @@ def part2(data):
 
     for number in numbers:
         for i, board in enumerate(boards):
-            if i in winners:
-                continue
-            won = __update(number, board)
-            if won:
-                winners.append(i)
-                if len(winners) == len(boards):
-                    return __calc_board_result(board, number)
+            if i not in winners:
+                if __update(number, board):
+                    winners.append(i)
+                    if len(winners) == len(boards):
+                        return __calc_board_result(board, number)
     return -1
 
 
@@ -81,28 +78,19 @@ def __update(n, board):
     # TODO: Function way too big and messy!
     
     # Scan each board and look for the number to mark off
-    line_no = 0
-    col_no = 0
-
     row_len = len(board[0])
 
     done = False
-    for line in board:
-        col_no = 0
-        for number in line:
+    for line_no, line in enumerate(board):
+        for col_no, number in enumerate(line):
             if number[0] == int(n):
                 number[1] = 'x'
                 done = True
                 break
-            col_no += 1
         if done:
             break
-        line_no += 1
 
     # check if the line is a horizontal winner
-    if line_no >= row_len:
-        line_no = row_len - 1
-
     candidate_row = board[line_no]
     count = 0
     for number in candidate_row:
@@ -115,8 +103,6 @@ def __update(n, board):
     # check if the line is a vertical winner
     count = 0
     candidate_col = col_no
-    if candidate_col >= row_len:
-        candidate_col = row_len - 1
 
     for r in range(row_len):
         row = board[r]
