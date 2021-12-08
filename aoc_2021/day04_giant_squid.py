@@ -78,7 +78,7 @@ def __update(n, board):
     :return: True if a winning line, otherwise False
     """
     
-    # TODO: Function way too big and messey! 
+    # TODO: Function way too big and messy!
     
     # Scan each board and look for the number to mark off
     line_no = 0
