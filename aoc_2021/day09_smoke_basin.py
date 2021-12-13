@@ -65,7 +65,7 @@ def __get_neighbours(row, col, height, width):
     return results
 
 
-def __get_neighbours_exclude_seen(data, row, col, seen, height, width):
+def __get_unique_neighbours(data, row, col, seen, height, width):
     n1 = (row - 1, col)
     n2 = (row + 1, col)
     n3 = (row, col + 1)
@@ -115,7 +115,7 @@ def __calc_basin(data, num, r, c, seen, basin, height, width):
         basin.append(num)
         seen.add((r, c))
 
-    neighbours = __get_neighbours_exclude_seen(data, r, c, seen, height, width)
+    neighbours = __get_unique_neighbours(data, r, c, seen, height, width)
     for c in neighbours:
         row = c[0]
         col = c[1]
