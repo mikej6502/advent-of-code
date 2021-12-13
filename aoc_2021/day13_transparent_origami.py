@@ -121,13 +121,11 @@ def __parse_data(data):
             ins = e[2].split('=')
             instructions.append((ins[0], int(ins[1])))
         else:
-            if len(line) == 0:
-                continue
-            x, y = map(int, line.split(','))
-
-            width = max(width, x)
-            height = max(height, y)
-            coordinates.append((x, y))
+            if len(line) > 0:
+                x, y = map(int, line.split(','))
+                width = max(width, x)
+                height = max(height, y)
+                coordinates.append((x, y))
 
     width += 1
     height += 1
