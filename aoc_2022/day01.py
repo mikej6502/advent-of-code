@@ -37,7 +37,7 @@ def part2(data):
             cals += int(n)
 
     totals.sort(reverse=True)
-    return totals[0] + totals[1] + totals[2]
+    return sum(totals[:3])
 
 
 class TestDay01(unittest.TestCase):
